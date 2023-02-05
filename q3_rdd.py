@@ -53,7 +53,7 @@ def fortnight(m,d,h):
         elif m == 5 and ((d >= 1 and h >= 1) or (d <= 16 and h < 1)):
                 return "2022-05-01 01:00 - 2022-05-16 01:00"
         elif m == 5 and ((d >= 16 and h >= 1) or (d <= 31 and h < 1)):
-                return "2022-05-16 01:00 - 2022-04-31 01:00"
+                return "2022-05-16 01:00 - 2022-05-31 01:00"
         elif (m ==5 and d >= 31 and h >= 1) or (m == 6 and d <=15 and h <1):
                 return "2022-05-31 01:00 - 2022-06-15 01:00"
         elif  m == 6 and ((d >= 15 and h >= 1) or (d <= 30 and h < 1)):
