@@ -46,19 +46,19 @@ def fortnight(m,d,h):
                 return "2022-03-02 00:00 - 2022-03-17 00:00"
         elif (m == 3 and d >= 17) or (m == 4 and d<=1 and h < 1):
                 return "2022-03-17 00:00 - 2022-04-01 01:00"
-        elif m == 4 and ((d >= 1 and h >= 1) or (d <= 16 and h < 1)): 
+        elif m == 4 and ((d >= 1 and d < 16 ) or (d == 16 and h < 1)): 
                 return "2022-04-01 01:00 - 2022-04-16 01:00"
-        elif (m ==4 and d >= 16 and h >= 1) or (m == 5 and d <=1 and h <1):
+        elif (m ==4 and d >= 16) or (m == 5 and d <=1 and h <1):
                 return "2022-04-16 01:00 - 2022-05-01 01:00"
-        elif m == 5 and ((d >= 1 and h >= 1) or (d <= 16 and h < 1)):
+        elif m == 5 and ((d >= 1 and d < 16) or (d == 16 and h < 1)):
                 return "2022-05-01 01:00 - 2022-05-16 01:00"
-        elif m == 5 and ((d >= 16 and h >= 1) or (d <= 31 and h < 1)):
+        elif m == 5 and ((d >= 16 and d < 31) or (d == 31 and h < 1)):
                 return "2022-05-16 01:00 - 2022-05-31 01:00"
-        elif (m ==5 and d >= 31 and h >= 1) or (m == 6 and d <=15 and h <1):
+        elif (m ==5 and d >= 31) or (m == 6 and (d < 15 or (d==15 and h <1))):
                 return "2022-05-31 01:00 - 2022-06-15 01:00"
-        elif  m == 6 and ((d >= 15 and h >= 1) or (d <= 30 and h < 1)):
+        elif  m == 6 and ((d >= 15 and d < 30) or (d == 30 and h < 1)):
                 return "2022-06-15 01:00 - 2022-06-30 01:00"
-        elif m == 6 and d == 30 and h >= 1:
+        else:
                 return "2022-06-30 01:00 - 2022-07-01 00:00"
 
 # We attempted joining rdd_trips with rdd_zones to get the names of the zones, but a worker crashed because of memory.
@@ -75,4 +75,5 @@ for x in rddq3.collect():
 
 time_stamp = time()-start
 print(f'Execution Time: {time_stamp:.3f}s')
+
 
